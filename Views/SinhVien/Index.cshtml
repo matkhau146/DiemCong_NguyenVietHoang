@@ -1,0 +1,36 @@
+﻿@model IEnumerable<DiemCong_NguyenVietHoang.Models.SinhVien>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sinh viên</h2>
+@Html.ActionLink("Create New", "Create", "SinhVien")
+<table border="1">
+    <tr>
+        <th>Ma sinh vien</th>
+        <th>Ho ten</th>
+        <th>Gioi tinh</th>
+        <th>Ngay sinh</th>
+        <th>Hinh</th>
+        <th>MaNganh</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    { 
+        <tr>
+            <td>@item.MaSV</td>
+            <td>@item.HoTen</td>
+            <td>@item.GioiTinh</td>
+            <td>@item.NgaySinh</td>
+            <td><img src="@item.Hinh" width="150px" /></td>
+            <td>@item.MaNganh</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaSV }) |
+                @Html.ActionLink("Detail", "Detail", new { id = item.MaSV }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaSV }) 
+            </td>
+        </tr>
+    }
+</table>
+
